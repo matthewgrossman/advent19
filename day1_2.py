@@ -12,5 +12,5 @@ def required_fuel_with_fuel(mass: int) -> int:
     return total_fuel
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(sum(required_fuel_with_fuel(m) for m in io()))

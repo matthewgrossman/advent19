@@ -10,5 +10,5 @@ def io() -> Iterator[int]:
     return (int(l) for l in fileinput.input())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(sum(required_fuel(m) for m in io()))

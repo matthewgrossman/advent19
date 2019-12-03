@@ -36,8 +36,7 @@ def run_program(memory: List[int]) -> List[int]:
 
 
 def program_result(memory: List[int]) -> int:
-    copied_input = memory.copy()
-    return run_program(copied_input)[0]
+    return run_program(memory.copy())[0]
 
 
 if __name__ == "__main__":

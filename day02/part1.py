@@ -16,7 +16,7 @@ class Opcodes:
     STOP = 99
 
 
-def run_program(memory: List[int]) -> None:
+def run_program(memory: List[int]) -> List[int]:
     instructions = [
         memory[i : i + INSTRUCTION_SIZE]
         for i in range(0, len(memory), INSTRUCTION_SIZE)
@@ -28,12 +28,18 @@ def run_program(memory: List[int]) -> None:
         elif opcode == Opcodes.MULTIPLY:
             memory[params[2]] = memory[params[0]] * memory[params[1]]
         elif opcode == Opcodes.STOP:
-            return
+            break
         else:
             raise ValueError("unknown opcode")
+
+    return memory
+
+
+def program_result(memory: List[int]) -> int:
+    copied_input = memory.copy()
+    return run_program(copied_input)[0]
 
 
 if __name__ == "__main__":
     memory = io()
-    run_program(memory)
-    print(memory[0])
+    print(program_result(memory))

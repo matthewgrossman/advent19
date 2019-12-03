@@ -10,7 +10,7 @@ def io() -> List[int]:
 INSTRUCTION_SIZE = 4
 
 
-class Opcode:
+class Opcodes:
     ADD = 1
     MULTIPLY = 2
     STOP = 99
@@ -23,11 +23,11 @@ def run_program(memory: List[int]) -> None:
     ]
 
     for opcode, *params in instructions:
-        if opcode == Opcode.ADD:
+        if opcode == Opcodes.ADD:
             memory[params[2]] = memory[params[0]] + memory[params[1]]
-        elif opcode == Opcode.MULTIPLY:
+        elif opcode == Opcodes.MULTIPLY:
             memory[params[2]] = memory[params[0]] * memory[params[1]]
-        elif opcode == Opcode.STOP:
+        elif opcode == Opcodes.STOP:
             return
         else:
             raise ValueError("unknown opcode")
